@@ -4,7 +4,7 @@ import random
 
 from torch.utils.data import IterableDataset
 
-from .hypterparameters import RANDOM_BUFFER_SIZE
+from .hyperparameters import RANDOM_BUFFER_SIZE
 
 
 class MeliChallengeDataset(IterableDataset):

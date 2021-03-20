@@ -45,6 +45,7 @@ class MLPClassifier(nn.Module):
             freeze=freeze_embedings,
             padding_idx=0,
         )
+
         self.hidden_layers = [
             nn.Linear(vector_size, hidden_layers[0])
         ]
