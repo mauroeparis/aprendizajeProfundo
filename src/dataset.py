@@ -4,11 +4,13 @@ import random
 
 from torch.utils.data import IterableDataset
 
+from .hypterparameters import RANDOM_BUFFER_SIZE
+
 
 class MeliChallengeDataset(IterableDataset):
     def __init__(self,
                  dataset_path,
-                 random_buffer_size=2048):
+                 random_buffer_size=RANDOM_BUFFER_SIZE):
         assert random_buffer_size > 0
         self.dataset_path = dataset_path
         self.random_buffer_size = random_buffer_size

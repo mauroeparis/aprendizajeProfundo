@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-from .hypterparameters import (
+from .hyperparameters import (
     DROPOUT,
     EMBEDDINGS_SIZE,
     EPOCHS,

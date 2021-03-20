@@ -15,7 +15,7 @@ from .constants import (
     TRAIN_DATA_PATH,
     VALIDATION_DATA_PATH,
 )
-from .hypterparameters import (
+from .hyperparameters import (
     EPOCHS,
     # MLPClassifier
     DROPOUT,
@@ -128,8 +128,8 @@ if __name__ == "__main__":
             vector_size=EMBEDDINGS_SIZE,
             freeze_embedings=FREEZE_EMBEDINGS,
         )
-
         model = model.to(device)
+
         loss = nn.CrossEntropyLoss()
         optimizer = optim.Adam(
             model.parameters(),
