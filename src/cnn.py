@@ -14,32 +14,51 @@ from .hyperparameters import (
 )
 
 
+FILTERS_COUNT = 100
+FILTERS_LENGTH = [2, 3, 4]
+FC_OUTPUT = 128
+
 class CNNClassifier(nn.Module):
+
     def __init__(self,
                  pretrained_embeddings_path,
-                 dictionary,
-                 vector_size,
-                 freeze_embedings):
+                 token_to_index,
+                 n_labels,
+                 hidden_layers=HIDDEN_LAYERS,
+                 vector_size=EMBEDDINGS_SIZE,
+                 freeze_embedings=FREEZE_EMBEDINGS):
         super().__init__()
-        embeddings_matrix = torch.randn(len(dictionary), vector_size)
+
+        with gzip.open(token_to_index, "rt") as fh:
+            token_to_index = json.load(fh)
+
+        embeddings_matrix = torch.randn(len(token_to_index), vector_size)
         embeddings_matrix[0] = torch.zeros(vector_size)
+
         with gzip.open(pretrained_embeddings_path, "rt") as fh:
+            next(fh)
             for line in fh:
                 word, vector = line.strip().split(None, 1)
-                if word in dictionary.token2id:
-                    embeddings_matrix[dictionary.token2id[word]] =\
+                if word in token_to_index:
+                    embeddings_matrix[token_to_index[word]] = (
                         torch.FloatTensor([float(n) for n in vector.split()])
-        self.embeddings = nn.Embedding.from_pretrained(embeddings_matrix,
-                                                       freeze=freeze_embedings,
-                                                       padding_idx=0)
+                    )
+
+        self.embeddings = nn.Embedding.from_pretrained(
+            embeddings_matrix,
+            freeze=freeze_embedings,
+            padding_idx=0,
+        )
+
         self.convs = []
         for filter_lenght in FILTERS_LENGTH:
             self.convs.append(
                 nn.Conv1d(vector_size, FILTERS_COUNT, filter_lenght)
             )
         self.convs = nn.ModuleList(self.convs)
-        self.fc = nn.Linear(FILTERS_COUNT * len(FILTERS_LENGTH), 128)
-        self.output = nn.Linear(128, 1)
+
+        self.fc = nn.Linear(FILTERS_COUNT * len(FILTERS_LENGTH), FC_OUTPUT)
+        self.output = nn.Linear(FC_OUTPUT, n_labels)
         self.vector_size = vector_size
 
     @staticmethod
