@@ -32,7 +32,7 @@ from .hyperparameters import (
     WEIGHT_DECAY,
 )
 from .dataset import MeliChallengeDataset
-from .mlp import MLPClassifier
+from .cnn import CNNClassifier
 from .utils import PadSequences
 
 
