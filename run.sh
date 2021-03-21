@@ -22,4 +22,4 @@ export CUDA_HOME=/opt/cuda/10.1
 export PATH=$CUDA_HOME/bin:$PATH
 export CUDA_VISIBLE_DEVICES=0
 
-python -m src.main
+python -m src.main_mlp
