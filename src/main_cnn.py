@@ -8,7 +8,7 @@ from sklearn.metrics import balanced_accuracy_score
 from torch.utils.data import DataLoader
 from tqdm import tqdm, trange
 
-from ..constants import (
+from .constants import (
     LANGUAGE,
     PRETRAINED_EMBEDDINGS_PATH,
     TEST_DATA_PATH,
@@ -16,7 +16,7 @@ from ..constants import (
     TRAIN_DATA_PATH,
     VALIDATION_DATA_PATH,
 )
-from ..hyperparameters import (
+from .hyperparameters import (
     EPOCHS,
     # CNNClassifier
     EMBEDDINGS_SIZE,
@@ -30,9 +30,9 @@ from ..hyperparameters import (
     LR,
     WEIGHT_DECAY,
 )
-from ..dataset import MeliChallengeDataset
+from .dataset import MeliChallengeDataset
 from .mlp import MLPClassifier
-from ..utils import PadSequences
+from .utils import PadSequences
 
 
 logging.basicConfig(
