@@ -1,4 +1,3 @@
-
 import logging
 import mlflow
 import torch
@@ -20,8 +19,10 @@ from .hyperparameters import (
     EPOCHS,
     # CNNClassifier
     EMBEDDINGS_SIZE,
-    FREEZE_EMBEDINGS,
     FC_OUTPUT,
+    FILTERS_COUNT,
+    FILTERS_LENGTH,
+    FREEZE_EMBEDINGS,
     # DataLoader
     BATCH_SIZE,
     # MeliChallengeDataset
