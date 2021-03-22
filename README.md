@@ -16,6 +16,8 @@ freeze_embedings=True
 
 ![](mlflow-CNN-1.png)
 
+![](CNN-grafico1.png)
+
 ## MLFlow - CNN-  Prueba 2
 
 ### Hiperparámetros usados:
@@ -27,6 +29,8 @@ freeze_embedings=True
 ### Resultados obtenidos:
 
 ![](mlflow-CNN-2.png)
+
+![](CNN-grafico2.png)
 
 Para esta prueba modificamos la cantidad de Epochs. Recordamos que la Epoch
 define el número de veces que el algoritmo de aprendizaje funcionará en todo el
@@ -55,6 +59,8 @@ freeze_embedings= False
 
 ![](mlflow-CNN-3.png)
 
+![](CNN-grafico3.png)
+
 En este experimento decidimos no no utilizar freeze para nuestros embeddings.
 Esto hizo que los mismos fueran menos consistentes. Al tener muchos datos con
 los que trabajar, usar freeze podría ser lo correcto, ya que no corremos riesgo
@@ -69,11 +75,15 @@ generando un balance entre inconsistencia y overfitting.
 
 ![](mlflow-MLP-1.png)
 
+![](MLP-grafico1.png)
+
 ## MLFlow - MLP -  Prueba 2
 
 ### Hiperparámetros usados y resultados obtenidos:
 
 ![](mlflow-MLP-2.png)
+
+![](MLP-grafico2.png)
 
 Cambiamos el número de epoch de 3 a 5 y aumentamos las hidden layers a 256 y la
 cantidad de iteraciones de aprendizaje de entrenamiento.
@@ -86,7 +96,9 @@ anteriores, pero no han cambiado significativamente.
 
 ![](mlflow-MLP-3.png)
 
+![](MLP-grafico3.png)
 
-## MLRuns
+
+## MLRuns files
 
 [link to drive](https://drive.google.com/drive/u/2/folders/16MVGhUMJT5CdZKb4sRIz182Pim3euLNk)
